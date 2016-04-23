@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--
+
+¡Huy! ¿No sería mejor será que echases un vistazo a http://github.com/ivansanchez/ElLibroDeBarbiSeLlama
+
+-->
+
+
+  <meta charset="utf-8">
+  <title>El libro de Barbi se llama...</title>
+  
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/peleja" type="text/css"/> 
+  
+  <style>
+  body {
+    background: #981ea7;
+    font-family: 'Pelejaregular10';
+  }
+  
+  input {
+    font-family: 'Pelejaregular10';
+  }
+  
+  #divdescarga {
+    margin-top: 3em;
+    margin-bottom: 3em;
+  }
+  
+  a {
+    color: white;
+  }
+  
+  </style>
+</head>
+<body>
+  <canvas id='libro' height=979 width=643 style='float:left'></canvas>
+
+  <div>Edita el título del libro de <a href='http://www.twitter.com/Barbijaputa'>Barbijaputa</a> (muy mal):</div>
+  <div><input type='text' id='linea1' value='@barbijaputa'></div>
+  <div><input type='text' id='linea2' value='LA CHICA'></div>
+  <div><input type='text' id='linea3' value='MIEDOSA'></div>
+  <div><input type='text' id='linea4' value='QUE FINGÍA'></div>
+  <div><input type='text' id='linea5' value='SER'></div>
+  <div><input type='text' id='linea6' value='VALIENTE'></div>
+  <div><input type='text' id='linea7' value='MUY MAL'></div>
+  
+  <div id='divdescarga'><a id='descarga'>Haz click con el botón derecho sobre la imagen para descargarla.</a></div>
+  
+  <div>Una vez que descargues la imagen, ¡tuitéala con el hashtag <a href='https://twitter.com/search?q=%23ElLibroDeBarbiSeLlama'>#ElLibroDeBarbiSeLlama</a>! (Y no te olvides que el libro está disponible en librerías por un <a href='https://twitter.com/search?q=%23M%C3%B3dicoPrecio'>#MódicoPrecio</a>)</div>
+  
+  <script>
+
+  
+var img = new Image(); 
+var canvas = document.getElementById('libro');
+var ctx = canvas.getContext('2d');
+var descarga = document.getElementById('descarga');
+
+function rehacer() {
+    ctx.drawImage(img, 0, 0);
+    
+    ctx.font = '50px Pelejaregular10';
+    ctx.textAlign = 'center';
+    
+    ctx.fillStyle = 'black';
+    ctx.fillText( document.getElementById('linea1').value, 321, 70 );
+    
+    ctx.font = '80px Pelejaregular10';
+    
+    ctx.fillStyle = 'black';
+    ctx.fillText( document.getElementById('linea2').value, 321, 155 );
+    
+    ctx.fillStyle = 'white';
+    ctx.fillText( document.getElementById('linea3').value, 321, 235 );
+    
+    ctx.fillStyle = 'black';
+    ctx.fillText( document.getElementById('linea4').value, 321, 310 );
+    
+    ctx.fillStyle = 'black';
+    ctx.fillText( document.getElementById('linea5').value, 321, 385 );
+    
+    ctx.fillStyle = 'white';
+    ctx.fillText( document.getElementById('linea6').value, 321, 465 );
+    
+    ctx.font = '50px Pelejaregular10';
+    
+    ctx.fillStyle = 'white';
+    ctx.fillText( document.getElementById('linea7').value, 321, 570 );
+    
+    try {
+        descarga.href=canvas.toDataURL();
+        descarga.download='ElLibroDeBarbiSeLlama.jpg'
+        descarga.innerHTML = '¡Descargar imagen!';
+    } catch(e) {}
+}
+
+img.addEventListener("load", rehacer, false);
+
+img.src = 'portada.jpg';
+
+setInterval(rehacer, 500);
+
+for(var i=1; i<=7; i++) {
+    document.getElementById('linea'+i).addEventListener('change', rehacer);
+};
+
+console.log("¡Huy! ¿No sería mejor será que echases un vistazo a http://github.com/ivansanchez/ElLibroDeBarbiSeLlama
+");
+
+
+  </script>
+</body>
+</html>
