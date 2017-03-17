@@ -10,104 +10,171 @@
 
   <meta charset="utf-8">
   <title>El libro de Barbi se llama...</title>
-  
-  <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/peleja" type="text/css"/> 
-  
+
+<!-- 	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/peleja" type="text/css"/> -->
+<!-- 	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/de-puntillas-d-to-tiptoe-lt" type="text/css"/> -->
+	<link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/some-time-later" type="text/css"/>
+
+  <script src="https://unpkg.com/lodash@4.17.4"></script>
+
   <style>
   body {
-    background: #981ea7;
-    font-family: 'Pelejaregular10';
-  }
-  
+/*     background: #981ea7; */
+	background: white;
+/*     font-family: 'Pelejaregular10'; */
+	font-family: 'dpuntillasDtotiptoeRegular';
+	font-family: 'SomeTimeLaterRegular';
+}
+
   input {
-    font-family: 'Pelejaregular10';
+/*     font-family: 'Pelejaregular10'; */
+	font-family: 'dpuntillasDtotiptoeRegular';
+	font-family: 'SomeTimeLaterRegular';
   }
-  
+
   #divdescarga {
     margin-top: 3em;
     margin-bottom: 3em;
   }
-  
+
   a {
-    color: white;
+/*     color: white; */
   }
-  
+
   </style>
 </head>
 <body>
   <canvas id='libro' height=979 width=643 style='float:left'></canvas>
 
-  <div>Edita el título del libro de <a href='http://www.twitter.com/Barbijaputa'>Barbijaputa</a> (muy mal):</div>
+  <div>Edita el título del libro de <a href='http://www.twitter.com/Barbijaputa'>Barbijaputa</a><!-- (muy mal)-->:</div>
   <div><input type='text' id='linea1' value='@barbijaputa'></div>
+  <div><input type='text' id='linea2' value='MACHISMO'></div>
+  <div><input type='text' id='linea3' value=''></div>
+  <div><input type='text' id='linea4' value='8 PASOS PARA'></div>
+  <div><input type='text' id='linea5' value='QUITÁRTELO'></div>
+  <div><input type='text' id='linea6' value='DE ENCIMA'></div>
+  <div><input type='text' id='linea7' value=''></div>
+<!--  <div><input type='text' id='linea1' value='@barbijaputa'></div>
   <div><input type='text' id='linea2' value='LA CHICA'></div>
   <div><input type='text' id='linea3' value='MIEDOSA'></div>
   <div><input type='text' id='linea4' value='QUE FINGÍA'></div>
   <div><input type='text' id='linea5' value='SER'></div>
   <div><input type='text' id='linea6' value='VALIENTE'></div>
-  <div><input type='text' id='linea7' value='MUY MAL'></div>
-  
+  <div><input type='text' id='linea7' value='MUY MAL'></div>-->
+
   <div id='divdescarga'><a id='descarga'>Haz click con el botón derecho sobre la imagen para descargarla.</a></div>
-  
+
   <div>Una vez que descargues la imagen, ¡tuitéala con el hashtag <a href='https://twitter.com/search?q=%23ElLibroDeBarbiSeLlama'>#ElLibroDeBarbiSeLlama</a>! (Y no te olvides que el libro está disponible en librerías por un <a href='https://twitter.com/search?q=%23M%C3%B3dicoPrecio'>#MódicoPrecio</a>)</div>
-  
+
   <script>
 
-  
-var img = new Image(); 
+
+var img = new Image();
 var canvas = document.getElementById('libro');
 var ctx = canvas.getContext('2d');
 var descarga = document.getElementById('descarga');
 
 function rehacer() {
     ctx.drawImage(img, 0, 0);
-    
-    ctx.font = '50px Pelejaregular10';
+
+    // Esto es para "La chica nainoneiro que nainoná":
+//     ctx.font = '50px Pelejaregular10';
+//     ctx.textAlign = 'center';
+//
+//     ctx.fillStyle = 'black';
+//     ctx.fillText( document.getElementById('linea1').value, 321, 70 );
+//
+//     ctx.font = '80px Pelejaregular10';
+//
+//     ctx.fillStyle = 'black';
+//     ctx.fillText( document.getElementById('linea2').value, 321, 155 );
+//
+//     ctx.fillStyle = 'white';
+//     ctx.fillText( document.getElementById('linea3').value, 321, 235 );
+//
+//     ctx.fillStyle = 'black';
+//     ctx.fillText( document.getElementById('linea4').value, 321, 310 );
+//
+//     ctx.fillStyle = 'black';
+//     ctx.fillText( document.getElementById('linea5').value, 321, 385 );
+//
+//     ctx.fillStyle = 'white';
+//     ctx.fillText( document.getElementById('linea6').value, 321, 465 );
+//
+//     ctx.font = '50px Pelejaregular10';
+//
+//     ctx.fillStyle = 'white';
+//     ctx.fillText( document.getElementById('linea7').value, 321, 570 );
+
+// 	var typeface = "Pelejaregular10";
+// 	var typeface = "dpuntillasDtotiptoeRegular";
+	var typeface = "SomeTimeLaterRegular";
+
+
+	// Esto es para "8 pasos para quitártelo de encima":
+    ctx.font = '50px ' + typeface;
     ctx.textAlign = 'center';
-    
-    ctx.fillStyle = 'black';
-    ctx.fillText( document.getElementById('linea1').value, 321, 70 );
-    
-    ctx.font = '80px Pelejaregular10';
-    
-    ctx.fillStyle = 'black';
-    ctx.fillText( document.getElementById('linea2').value, 321, 155 );
-    
+
     ctx.fillStyle = 'white';
-    ctx.fillText( document.getElementById('linea3').value, 321, 235 );
-    
+    ctx.fillText( document.getElementById('linea1').value, 301, 140 );
+
+
+    // ¿Cómo de ancha es esta línea? Calcula con 10px de fuente, escala según corresponda.
+    ctx.font = '10px ' + typeface;
+
+    var metricas = ctx.measureText(document.getElementById('linea2').value);
+    var anchoTexto = metricas.width;
+    var anchoImagen = 500; // Realmente 603, pero aplico un margen de 60px a cada lado
+    var ratio = anchoImagen / anchoTexto;	// Cuántas veces cabe el texto en la imagen?
+    ratio = Math.min(ratio, 30);
+console.log(anchoTexto, anchoImagen, ratio);
+    ctx.font = (10 * ratio) + 'px ' + typeface;
+
     ctx.fillStyle = 'black';
-    ctx.fillText( document.getElementById('linea4').value, 321, 310 );
-    
-    ctx.fillStyle = 'black';
-    ctx.fillText( document.getElementById('linea5').value, 321, 385 );
-    
+    ctx.fillText( document.getElementById('linea2').value, 301, 500);
+
+
+    ctx.font = '50px ' + typeface;
     ctx.fillStyle = 'white';
-    ctx.fillText( document.getElementById('linea6').value, 321, 465 );
-    
-    ctx.font = '50px Pelejaregular10';
-    
-    ctx.fillStyle = 'white';
-    ctx.fillText( document.getElementById('linea7').value, 321, 570 );
-    
+    ctx.fillText( document.getElementById('linea3').value, 301, 600 );
+    ctx.fillText( document.getElementById('linea4').value, 301, 660 );
+    ctx.fillText( document.getElementById('linea5').value, 301, 720 );
+    ctx.fillText( document.getElementById('linea6').value, 301, 780 );
+    ctx.fillText( document.getElementById('linea7').value, 301, 840 );
+
+
     try {
         descarga.href=canvas.toDataURL();
-        descarga.download='ElLibroDeBarbiSeLlama.jpg'
+        descarga.download='ElLibroDeBarbiSeLlama.jpg';
         descarga.innerHTML = '¡Descargar imagen!';
     } catch(e) {}
 }
 
-img.addEventListener("load", rehacer, false);
+var rehacerAhogado = _.debounce(rehacer, 200);
 
-img.src = 'portada.jpg';
+// function rehacerAhogado() {
+// 	console.log('ping.', _);
+// 	// Ahoga ("throttle down") las llamadas a rehacer()
+// 	_.debounce(rehacer, 2000)();
+// }
 
-setInterval(rehacer, 500);
+
+// img.src = 'portada.jpg';
+img.src = 'portada-8pasos.jpg';
+
+// setInterval(rehacer, 500);
+// document.getElementById('linea2')
+
+img.addEventListener("load", rehacerAhogado, false);
+
 
 for(var i=1; i<=7; i++) {
-    document.getElementById('linea'+i).addEventListener('change', rehacer);
+	document.getElementById('linea'+i).addEventListener('change', rehacerAhogado);
+	document.getElementById('linea'+i).addEventListener('keyup', rehacerAhogado);
 };
+rehacerAhogado();
 
-console.log("¡Huy! ¿No sería mejor será que echases un vistazo a http://github.com/ivansanchez/ElLibroDeBarbiSeLlama
-");
+console.log("¡Huy! ¿No sería mejor será que echases un vistazo a http://github.com/ivansanchez/ElLibroDeBarbiSeLlama ");
 
 
   </script>
